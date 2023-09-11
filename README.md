@@ -310,4 +310,5 @@ The [`lib.rs`](src/lib.rs) and [`stored.rs`](src/stored.rs) files are documented
 ## Challenges
 
 1. Change the state machine to prevent transitioning to the ready state more than 3 times.
-2. Modify the implementation to show the name of the current state on the command line before asking what operation to perform.
+2. Add a `Token` type that can only be constructed by the initial state `Stored` and prevent instantiating `ReadyState` without a token.
+3. Modify the implementation to show the name of the current state on the command line before asking what operation to perform.
