@@ -300,3 +300,14 @@ The reason for this is that futures are state machines of themselves.
 This means that you are mixing an explicit state machine with implicitly defined state machines.
 By keeping the state machine synchronous, you can always respond to queries that want to try and do something with the state machine.
 In case of async transitions, you will move the state into the async future and keep it there until it resolves, making it impossible to do anything with the state in the mean time.
+
+## Implementation
+
+The complete implementation can be found in the package defined in this repository.
+It may see some refinement after the initial writing (which I am doing right now).
+The [`lib.rs`](src/lib.rs) and [`stored.rs`](src/stored.rs) files are documented most thoroughly with some motivations for the implementation.
+
+## Challenges
+
+1. Change the state machine to prevent transitioning to the ready state more than 3 times.
+2. Modify the implementation to show the name of the current state on the command line before asking what operation to perform.
